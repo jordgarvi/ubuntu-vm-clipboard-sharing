@@ -44,14 +44,17 @@ In the **VirtualBox VM window**:
 
 1. Click on `Devices → Insert Guest Additions CD image...`
 2. Wait a few seconds for Ubuntu to detect and mount the disk
-3. If it doesn’t auto-mount, do it manually:
+3. If it doesn’t auto-mount, mount it manually:
 
 ```bash
 sudo mkdir /mnt/cdrom
 sudo mount /dev/cdrom /mnt/cdrom
 ```
 
-📸 **Screenshot:**  
+📸 **Screenshot of manual mount:**  
+![Mounted Guest Additions manually](./images/03-cd-mounted-terminal.png)
+
+📸 **Screenshot of menu option:**  
 ![VirtualBox Devices menu showing CD option](./images/02-insert-guest-additions.png)
 
 ---
