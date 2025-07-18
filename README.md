@@ -4,6 +4,20 @@ This is a step-by-step guide to enable **copy & paste** between an Ubuntu virtua
 
 ---
 
+## Table of Contents
+
+1. [Environment](#environment)  
+2. [Objective](#objective)  
+3. [Step 1: Install Required Packages in Ubuntu](#step-1-install-required-packages-in-ubuntu)  
+4. [Step 2: Insert Guest Additions CD](#step-2-insert-guest-additions-cd)  
+5. [Step 3: Verify Guest Additions Is Active](#step-3-verify-guest-additions-is-active)  
+6. [Step 4: Restart the VM (Optional)](#step-4-restart-the-vm-optional)  
+7. [Step 5: Enable Bidirectional Clipboard in VirtualBox](#step-5-enable-bidirectional-clipboard-in-virtualbox)  
+8. [Verification Test](#verification-test)  
+9. [Summary](#summary)  
+
+---
+
 ## Environment
 
 - **Host OS**: Windows 11 (24H2)  
@@ -34,7 +48,8 @@ sudo apt update
 sudo apt install build-essential dkms linux-headers-$(uname -r)
 ```
 
-![Terminal after installing dependencies](./images/01-packages-installed.png)
+**Screenshot of terminal after installing dependencies:**  
+![](./images/01-packages-installed.png)
 
 ---
 
@@ -42,8 +57,8 @@ sudo apt install build-essential dkms linux-headers-$(uname -r)
 
 In the **VirtualBox VM window**:
 
-1. Click on `Devices → Insert Guest Additions CD image...`
-2. Wait a few seconds for Ubuntu to detect and mount the disk
+1. Click on `Devices → Insert Guest Additions CD image...`  
+2. Wait a few seconds for Ubuntu to detect and mount the disk  
 3. If it doesn’t auto-mount, mount it manually:
 
 ```bash
@@ -52,11 +67,10 @@ sudo mount /dev/cdrom /mnt/cdrom
 ```
 
 📸 **Screenshot of manual mount:**  
-![Mounted Guest Additions manually](./images/03-cd-mounted-terminal.png)
-
+![](./images/03-cd-mounted-terminal.png)
 
 📸 **Screenshot of menu option:**  
-![VirtualBox Devices menu showing CD option](./images/02-insert-guest-additions.png)
+![](./images/02-insert-guest-additions.png)
 
 ---
 
@@ -75,7 +89,7 @@ sudo: /mnt/cdrom/VBoxLinuxAdditions.run: command not found
 ```
 
 📸 **Screenshot of VBoxLinux Additions error:**  
-![Screenshot showing an error during VBoxLinuxAdditions installation](./images/VBoxLinuxAdditions-error.png)
+![](./images/VBoxLinuxAdditions-error.png)
 
 ---
 
@@ -87,9 +101,18 @@ lsmod | grep vbox
 
 Output shows `vboxguest`, `vboxsf`, or `vboxvideo` modules are loaded, confirming Guest Additions is active.
 
-
 📸 **Screenshot showing verification of Guest Additions:**  
-![guest-additions-running.png](./images/guest-additions-running.png)
+![](./images/guest-additions-running.png)
+
+---
+
+### Step 4: Restart the VM (Optional)
+
+To ensure all changes take effect, reboot your Ubuntu VM:
+
+```bash
+sudo reboot
+```
 
 ---
 
@@ -97,10 +120,38 @@ Output shows `vboxguest`, `vboxsf`, or `vboxvideo` modules are loaded, confirmin
 
 After the reboot:
 
-1. Go to the VM window → `Devices → Shared Clipboard → Bidirectional`
+1. Go to the VM window → `Devices → Shared Clipboard → Bidirectional`  
 2. (Optional) Also enable `Drag and Drop → Bidirectional`
 
 📸 **Screenshot showing VirtualBox Devices menu:**  
-![Enabled Bidirectional Clipboard](./images/05-devices-menu.png)
+![](./images/05-devices-menu.png)
 
 ---
+
+## Verification Test
+
+Try copying the following command from your host (Windows):
+
+```bash
+echo "Clipboard sharing works!"
+```
+
+Paste it into your Ubuntu VM terminal and run it. You should see:
+
+
+📸 **Screenshot showing successful copy-paste test:**  
+![](./images/06-verification-test.png)
+
+---
+
+## Summary
+
+Getting bidirectional clipboard sharing working between an Ubuntu VM and a Windows host isn’t always straightforward. Along the way, I faced some challenges, especially with running the Guest Additions installer manually, which didn’t work as expected.  
+
+However, after confirming the necessary kernel modules were loaded, the real breakthrough came when I enabled **Bidirectional Clipboard** (and optionally Drag and Drop) in the VirtualBox Devices menu (Step 5).  
+
+This simple step finally unlocked seamless copy-paste functionality both ways, which has made working with the VM much smoother and more productive.  
+
+If you run into issues, double check the Guest Additions installation and make sure those Devices menu options are enabled. Once everything’s set up, you’ll be able to copy commands, text, and notes effortlessly between your host and VM—saving you time and frustration.
+
+
