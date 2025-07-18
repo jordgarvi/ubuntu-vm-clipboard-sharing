@@ -37,3 +37,21 @@ sudo apt install build-essential dkms linux-headers-$(uname -r)
 ![Terminal after installing dependencies](./images/01-packages-installed.png)
 
 ---
+
+### Step 2: Insert Guest Additions CD
+
+In the **VirtualBox VM window**:
+
+1. Click on `Devices → Insert Guest Additions CD image...`
+2. Wait a few seconds for Ubuntu to detect and mount the disk
+3. If it doesn’t auto-mount, do it manually:
+
+```bash
+sudo mkdir /mnt/cdrom
+sudo mount /dev/cdrom /mnt/cdrom
+```
+
+📸 **Screenshot:**  
+![VirtualBox Devices menu showing CD option](./images/02-insert-guest-additions.png)
+
+---
