@@ -90,6 +90,7 @@ Output shows `vboxguest`, `vboxsf`, or `vboxvideo` modules are loaded, confirmin
 
 📸 **Screenshot showing verification of Guest Additions:**  
 ![guest-additions-running.png](../images/guest-additions-running.png)
+
 ---
 
 ### Step 5: Enable Bidirectional Clipboard in VirtualBox
