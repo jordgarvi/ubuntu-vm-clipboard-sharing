@@ -74,8 +74,8 @@ However, it returned the following error:
 sudo: /mnt/cdrom/VBoxLinuxAdditions.run: command not found
 ```
 
-📸 **Screenshot:**  
-!/[](./images/VBoxLinuxAdditions-error.png)
+📸 **Screenshot of VBoxLinux Additions error:**  
+![](./images/VBoxLinuxAdditions-error.png)
 
 ---
 
@@ -89,4 +89,4 @@ Output shows `vboxguest`, `vboxsf`, or `vboxvideo` modules are loaded, confirmin
 
 
 📸 **Screenshot:**  
-!/[](./images/guest-additions-running.png)
+![](./images/guest-additions-running.png)
