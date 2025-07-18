@@ -75,7 +75,7 @@ sudo: /mnt/cdrom/VBoxLinuxAdditions.run: command not found
 ```
 
 📸 **Screenshot of VBoxLinux Additions error:**  
-![](./images/VBoxLinuxAdditions-error.png)
+![Screenshot showing an error during VBoxLinuxAdditions installation](./images/VBoxLinuxAdditions-error.png)
 
 ---
 
@@ -88,5 +88,18 @@ lsmod | grep vbox
 Output shows `vboxguest`, `vboxsf`, or `vboxvideo` modules are loaded, confirming Guest Additions is active.
 
 
-📸 **Screenshot:**  
-![](./images/guest-additions-running.png)
+📸 **Screenshot showing verification of Guest Additions:**  
+![guest-additions-running.png](../images/guest-additions-running.png)
+---
+
+### Step 5: Enable Bidirectional Clipboard in VirtualBox
+
+After the reboot:
+
+1. Go to the VM window → `Devices → Shared Clipboard → Bidirectional`
+2. (Optional) Also enable `Drag and Drop → Bidirectional`
+
+📸 **Screenshot showing VirtualBox Devices menu:**  
+![Enabled Bidirectional Clipboard](./images/05-devices-menu.png)
+
+---
