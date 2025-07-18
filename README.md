@@ -4,7 +4,7 @@ This is a step-by-step guide to enable **copy & paste** between an Ubuntu virtua
 
 ---
 
-## 🖥️ Environment
+## Environment
 
 - **Host OS**: Windows 11 (24H2)  
 - **Guest OS**: Ubuntu 22.04 LTS  
@@ -12,7 +12,7 @@ This is a step-by-step guide to enable **copy & paste** between an Ubuntu virtua
 
 ---
 
-## 🎯 Objective
+## Objective
 
 Enable **bidirectional clipboard sharing**, so you can:
 
@@ -21,7 +21,7 @@ Enable **bidirectional clipboard sharing**, so you can:
 
 ---
 
-## 🛠️ Step-by-Step Instructions
+## Step-by-Step Instructions
 
 ### Step 1: Install Required Packages in Ubuntu
 
@@ -54,7 +54,39 @@ sudo mount /dev/cdrom /mnt/cdrom
 📸 **Screenshot of manual mount:**  
 ![Mounted Guest Additions manually](./images/03-cd-mounted-terminal.png)
 
+
 📸 **Screenshot of menu option:**  
 ![VirtualBox Devices menu showing CD option](./images/02-insert-guest-additions.png)
 
 ---
+
+### Step 3: Verify Guest Additions Is Active
+
+I attempted to run the Guest Additions installer manually:
+
+```bash
+sudo /mnt/cdrom/VBoxLinuxAdditions.run
+```
+
+However, it returned the following error:
+
+```bash
+sudo: /mnt/cdrom/VBoxLinuxAdditions.run: command not found
+```
+
+📸 **Screenshot:**  
+!/[](./images/VBoxLinuxAdditions-error.png)
+
+---
+
+Instead, I verified the installation using:
+
+```bash
+lsmod | grep vbox
+```
+
+Output shows `vboxguest`, `vboxsf`, or `vboxvideo` modules are loaded, confirming Guest Additions is active.
+
+
+📸 **Screenshot:**  
+!/[](./images/guest-additions-running.png)
