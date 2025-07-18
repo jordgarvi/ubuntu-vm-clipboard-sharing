@@ -34,6 +34,6 @@ sudo apt update
 sudo apt install build-essential dkms linux-headers-$(uname -r)
 ```
 
-![Terminal after installing dependencies](../01-packages-installed.png)
+![Terminal after installing dependencies](../images/01-packages-installed.png)
 
 ---
